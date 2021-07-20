@@ -25,7 +25,7 @@ config :logger, :console,
 
 config :bank_api, BankApi.Accounts.Auth.Guardian,
   issuer: "bank_api",
-  secret_key: "c9DRwDOA94vWUV6gulT2HWYbHelbO1dhjLt77ZOOjhtI1YqoSWMkIeEsIVr/GEdM"
+  secret_key: "${GUARDIAN_SECRET}"
 
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
