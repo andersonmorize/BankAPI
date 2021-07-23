@@ -2,8 +2,6 @@ defmodule BankApi.Operations do
   @moduledoc """
   Set of functions for account operations
   """
-
-  alias BankApi.Accounts
   alias BankApi.Accounts.Account
   alias BankApi.Repo
   alias BankApi.Transactions.Transaction
@@ -80,19 +78,19 @@ defmodule BankApi.Operations do
   end
 
   # subtract the amount from the account balance
-  def perform_operation(account, value, :sub) do
+  defp perform_operation(account, value, :sub) do
     account
       |> update_account(%{balance: Decimal.sub(account.balance, value)})
   end
 
   # sums the amount with account balance
-  def perform_operation(account, value, :sum) do
+  defp perform_operation(account, value, :sum) do
     account
       |> update_account(%{balance: Decimal.add(account.balance, value)})
   end
 
   # Update Account Changeset
-  def update_account(%Account{} = account, attrs) do
+  defp update_account(%Account{} = account, attrs) do
     Account.changeset(account, attrs)
   end
 

@@ -6,4 +6,10 @@ defmodule BankApiWeb.OperationView do
       message: message
     }
   end
+
+  def render("error_message.json", %{message: message}) do
+    %{
+      error: %{message: message}
+    }
+  end
 end
